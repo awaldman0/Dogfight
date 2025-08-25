@@ -89,9 +89,6 @@ public class Model {
 	}
 
 	private void gameLogic() { 
-		// this is a way to increment across the array list data structure 		
-		//see if they hit anything 
-		// using enhanced for-loop style as it makes it a lot easier both code wise and reading wise too 
 			
 		for (GameObject temp : EnemiesList) {
 			for (GameObject bullet : playerBulletList) {
@@ -100,15 +97,19 @@ public class Model {
 					if (temp.getHealth() <= 0) {
 						EnemiesList.remove(temp);
 						CreateExplosion(temp);
-						Sound.playExplosionSound();
-						Score += 100;
+						if (!gameOver) { 
+							Sound.playExplosionSound();
+							Score += 100;
+						}
 					} else {
 						temp.setHealth(temp.getHealth() - 25);
 						if (temp.getHealth() <= 0) {
 							EnemiesList.remove(temp);
 							CreateExplosion(temp);
-							Sound.playExplosionSound();
-							Score += 100;
+							if (!gameOver) { 
+								Sound.playExplosionSound();
+								Score += 100;
+							}
 						}
 					}
 				}  
@@ -119,15 +120,20 @@ public class Model {
 					if (temp.getHealth() <= 0) {
 						EnemiesList.remove(temp);
 						CreateExplosion(temp);
-						Sound.playExplosionSound();
-						Score += 100;
+						if (!gameOver) { 
+							Sound.playExplosionSound();
+							Score += 100;
+						}
 					} else {
 						temp.setHealth(temp.getHealth() - 65);
 						if (temp.getHealth() <= 0) {
 							EnemiesList.remove(temp);
 							CreateExplosion(temp);
 							Sound.playExplosionSound();
-							Score += 100;
+							if (!gameOver) { 
+								Sound.playExplosionSound();
+								Score += 100;
+							}
 						}
 					}
 				}  
@@ -139,14 +145,20 @@ public class Model {
 						EnemiesList.remove(temp);
 						CreateExplosion(temp);
 						Sound.playExplosionSound();
-						Score += 100;
+						if (!gameOver) { 
+							Sound.playExplosionSound();
+							Score += 100;
+						}
 					} else {
 						temp.setHealth(temp.getHealth() - 35);
 						if (temp.getHealth() <= 0) {
 							EnemiesList.remove(temp);
 							CreateExplosion(temp);
 							Sound.playExplosionSound();
-							Score += 100;
+							if (!gameOver) {
+								Sound.playExplosionSound();
+								Score += 100;
+							}
 						}
 					}
 				}  
@@ -159,8 +171,10 @@ public class Model {
 				playerMissileList.remove(missile);
 				EnemiesList.remove(target);
 				CreateExplosion(target);
-				Sound.playExplosionSound();
-				Score += 100;
+				if (!gameOver) { 
+					Sound.playExplosionSound();
+					Score += 100;
+				}
 			}  
 		}
 		if (singleplayer) {

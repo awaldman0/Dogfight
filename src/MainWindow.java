@@ -32,14 +32,15 @@ public class MainWindow {
 	private JLabel BackgroundImageForStartMenu;
 	  
 	public MainWindow() {
+		frame.setTitle("Dogfight"); 
 		frame.setMaximumSize(new Dimension(1000, 1000));
 		frame.setSize(1000, 1000);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //If exit // you can modify with your way of quitting , just is a template.
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 		frame.setLayout(null);
 		frame.add(canvas);  
 		canvas.setBounds(0, 0, 1000, 1000); 
-		canvas.setBackground(new Color(255,255,255)); //white background  replaced by Space background but if you remove the background method this will draw a white screen 
-		canvas.setVisible(false);   // this will become visible after you press the key.  
+		canvas.setBackground(new Color(255,255,255)); 
+		canvas.setVisible(false);    
 	
 		JButton singleplayer = new JButton("Single Player");  // button for single player 
 		JButton multiplayer = new JButton("Multiplayer");  // button for single player 
@@ -72,7 +73,7 @@ public class MainWindow {
 		multiplayer.setVisible(true);
 
 		//loading background image 
-		File BackroundToLoad = new File("res/titleScreen.png");  //should work okay on OSX and Linux but check if you have issues depending your eclipse install or if your running this without an IDE 
+		File BackroundToLoad = new File("res/titleScreen.png");  
 		try {
 			 BufferedImage myPicture = ImageIO.read(BackroundToLoad);
 			 BackgroundImageForStartMenu = new JLabel(new ImageIcon(myPicture));
@@ -110,8 +111,6 @@ public class MainWindow {
 		gameworld.gamelogic();
 		// view update 
 		canvas.updateview(); 
-
-		frame.setTitle("Dogfight"); 
 	}
 	
 	
