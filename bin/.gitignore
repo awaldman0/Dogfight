@@ -4,3 +4,11 @@
 /Model.class
 /Viewer.class
 /util/
+/Sound.class
+/main/
+/explosion.wav
+/hit.wav
+/multiplayerscores.txt
+/rise.wav
+/singleplayerscores.txt
+/sweep.wav
