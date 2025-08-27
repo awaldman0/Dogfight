@@ -427,11 +427,11 @@ public class Model {
 	
 
 	private void CreatePlayerBullet() {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(Player.getCentre().getX() + r.nextInt(15) - 16, Player.getCentre().getY() + r.nextInt(15) - 16,0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
+		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(Player.getCentre().getX(),  Player.getCentre().getY(),0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
 	}
 	
 	private void CreatePlayerBulletMultiplayer(GameObject obj) {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(obj.getCentre().getX() + r.nextInt(15) - 16, obj.getCentre().getY() + r.nextInt(15) - 16,0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
+		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(obj.getCentre().getX(), obj.getCentre().getY(),0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
 	}
 	
 
@@ -474,14 +474,14 @@ public class Model {
 	}
 	
 	private void CreateFireball() {
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(0, -3, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(3, 0, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(-3, 0, 0))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(1, 1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(1, -1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(-1, 1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2, 0.0f), MainWindow.canvas.turn(new Vector3f(-1, -1, 0).Normal().byScalar(4))));
+		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0))));
+		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, -3, 0))));
+		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(3, 0, 0))));
+		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-3, 0, 0))));
+		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, 1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, -1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, 1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, -1, 0).Normal().byScalar(4))));
 	}
 	
 	private void CreateFireballMultiplayer(GameObject obj) {
