@@ -46,22 +46,40 @@ public class MainWindow {
 	
 		JButton singleplayer = new JButton("Single Player");  // button for single player 
 		JButton multiplayer = new JButton("Multiplayer");  // button for single player 
+		JButton howtoplay = new JButton("How To Play"); //how to play button
+		JButton clear = new JButton("Reset High Scores"); //reset hi score button
 		ActionListener x = new ActionListener() { 
 			@Override
 			public void actionPerformed(ActionEvent e) { 
-				singleplayer.setVisible(false);
-				multiplayer.setVisible(false);
-				BackgroundImageForStartMenu.setVisible(false);
-				canvas.setVisible(true); 
-				canvas.addKeyListener(Controller);    //adding the controller to the Canvas  
-				canvas.requestFocusInWindow();   // making sure that the Canvas is in focus so keyboard input will be taking in .
-				Sound.playStartSound();
 				if (e.getSource() == singleplayer) {
+					singleplayer.setVisible(false);
+					multiplayer.setVisible(false);
+					howtoplay.setVisible(false);
+					clear.setVisible(false);
 					gameworld.singleplayer = true;
-				} else {
+					BackgroundImageForStartMenu.setVisible(false);
+					canvas.setVisible(true); 
+					canvas.addKeyListener(Controller);    //adding the controller to the Canvas  
+					canvas.requestFocusInWindow();   // making sure that the Canvas is in focus so keyboard input will be taking in .
+					Sound.playStartSound();
+					startGame = true;
+				} else if (e.getSource() == multiplayer){
+					singleplayer.setVisible(false);
+					multiplayer.setVisible(false);
+					howtoplay.setVisible(false);
+					clear.setVisible(false);
 					gameworld.singleplayer = false;
+					BackgroundImageForStartMenu.setVisible(false);
+					canvas.setVisible(true); 
+					canvas.addKeyListener(Controller);    //adding the controller to the Canvas  
+					canvas.requestFocusInWindow();   // making sure that the Canvas is in focus so keyboard input will be taking in .
+					Sound.playStartSound();
+					startGame = true;
+				} else if (e.getSource() == howtoplay) {
+					
+				} else {
+					
 				}
-				startGame = true;
 			}
 		};
 		singleplayer.setBounds(125, 575, 300, 60); 
@@ -73,6 +91,16 @@ public class MainWindow {
 		multiplayer.addActionListener(x);
 		frame.add(multiplayer);
 		multiplayer.setVisible(true);
+		
+		howtoplay.setBounds(125, 675, 300, 60);
+		howtoplay.addActionListener(x);
+		frame.add(howtoplay);
+		howtoplay.setVisible(true);
+		
+		clear.setBounds(525, 675, 300, 60);
+		clear.addActionListener(x);
+		frame.add(clear);
+		clear.setVisible(true);
 
 		//loading background image 
 		File BackroundToLoad = new File("res/titleScreen.png");  
@@ -115,5 +143,8 @@ public class MainWindow {
 		canvas.updateview(); 
 	}
 	
+	private void setup() {
+		
+	}
 	
 }
