@@ -671,18 +671,17 @@ public class Viewer extends JPanel {
 		char[] word = gameover.toCharArray();
 		g.drawChars(word, 0, gameover.length(), 210, 200);
 		
-		pixel_font = pixel_font.deriveFont(Font.BOLD, 40f);
+		pixel_font = pixel_font.deriveFont(Font.BOLD, 45f);
 		g.setFont(pixel_font);
 		g.setColor(new Color(0, 0, 0));
 		String score = "YOUR SCORE: " + gameworld.getScore();
 		word = score.toCharArray();
-		g.drawChars(word, 0, score.length(), 212, 300);
+		g.drawChars(word, 0, score.length(), 212, 290);
 		
-		pixel_font = pixel_font.deriveFont(Font.BOLD, 55f);
-		g.setFont(pixel_font);
+
 		String hiscore = "HIGH SCORES";
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 400);
+		g.drawChars(word, 0, hiscore.length(), 212, 370);
 		
 		g.setColor(new Color(255, 215, 0));
 		if (scores.size() >= 5) {
@@ -729,7 +728,7 @@ public class Viewer extends JPanel {
 			hiscore = "1. " + "-";
 		}
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 480);
+		g.drawChars(word, 0, hiscore.length(), 212, 430);
 		
 		g.setColor(new Color(128, 128, 128));
 		if (score2 != 0) {
@@ -738,7 +737,7 @@ public class Viewer extends JPanel {
 			hiscore = "2. " + "-";
 		}
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 560);
+		g.drawChars(word, 0, hiscore.length(), 212, 490);
 		
 		g.setColor(new Color(205, 127, 50));
 		
@@ -748,7 +747,7 @@ public class Viewer extends JPanel {
 			hiscore = "3. " + "-";
 		}
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 640);
+		g.drawChars(word, 0, hiscore.length(), 212, 550);
 		
 		g.setColor(new Color(0, 0, 0));
 		if (score4 != 0) {
@@ -757,7 +756,7 @@ public class Viewer extends JPanel {
 			hiscore = "4. " + "-";
 		}
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 720);
+		g.drawChars(word, 0, hiscore.length(), 212, 610);
 		
 		if (score5 != 0) {
 			hiscore = "5. " + score5;
@@ -765,7 +764,14 @@ public class Viewer extends JPanel {
 			hiscore = "5. " + "-";
 		}
 		word = hiscore.toCharArray();
-		g.drawChars(word, 0, hiscore.length(), 212, 800);
+		g.drawChars(word, 0, hiscore.length(), 212, 670);
+		
+		hiscore = "R TO RESTART";
+		word = hiscore.toCharArray();
+		g.drawChars(word, 0, hiscore.length(), 212, 760);
+		hiscore = "M TO CHANGE MODE";
+		word = hiscore.toCharArray();
+		g.drawChars(word, 0, hiscore.length(), 212, 820);
 	}
 	
 	private void drawEverythingSinglePlayer(Graphics g) {
