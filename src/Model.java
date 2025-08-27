@@ -179,7 +179,9 @@ public class Model {
 				if (collision(bullet, Player, 1)) {
 					enemyBulletList.remove(bullet);
 					Player.setHealth(Player.getHealth() - 4);
-					Sound.playHitSound();
+					if (Player.getHealth() > 0) {
+						Sound.playHitSound();						
+					}
 					if (Player.getHealth() <= 0 && !gameOver) {
 						playerAlive = false;
 						CreateExplosion(Player);
@@ -195,7 +197,9 @@ public class Model {
 				if (PlayerList.contains(Player1) && collision(bullet, Player1, 1)) {
 					enemyBulletList.remove(bullet);
 					Player1.setHealth(Player1.getHealth() - 4);
-					Sound.playHitSound();
+					if (Player1.getHealth() > 0) {
+						Sound.playHitSound();						
+					}
 					if (Player1.getHealth() <= 0 && !gameOver) {
 						player1Alive = false;
 						CreateExplosion(Player1);
@@ -211,7 +215,9 @@ public class Model {
 				if (PlayerList.contains(Player2) && collision(bullet, Player2, 1)) {
 					enemyBulletList.remove(bullet);
 					Player2.setHealth(Player2.getHealth() - 4);
-					Sound.playHitSound();
+					if (Player2.getHealth() > 0) {
+						Sound.playHitSound();						
+					}
 					if (Player2.getHealth() <= 0 && !gameOver) {
 						player2Alive = false;
 						CreateExplosion(Player2);
@@ -1089,6 +1095,9 @@ public class Model {
 		lastEnemySpawned = System.currentTimeMillis();
 		PlayerList.add(Player1);
 		PlayerList.add(Player2);
+		
+		Sound.playStartSound();
+
 	}
 
 }
