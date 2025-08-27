@@ -30,10 +30,23 @@ public class MainWindow {
 	private static int TargetFPS = 90;
 	public static boolean startGame = false; 
 	private JLabel BackgroundImageForStartMenu;
+	
+	private static JFrame htpframe = new JFrame("How To Play");
+	public static Viewer canvas_htp = new Viewer(gameworld);
 	  
 	public MainWindow() {
-		gameworld.setCanvas(canvas);
+		canvas_htp.is_htp_screen = true;
+		htpframe.setTitle("How To Play"); 
+		htpframe.setMaximumSize(new Dimension(600, 600));
+		htpframe.setSize(600, 600);
+		htpframe.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);   
+		htpframe.setLayout(null);
+		htpframe.add(canvas_htp);
+		canvas_htp.setBounds(0, 0, 600, 600); 
+		canvas_htp.setBackground(new Color(255,255,240)); 
+		canvas_htp.setVisible(false); 
 		
+		gameworld.setCanvas(canvas);
 		frame.setTitle("Dogfight"); 
 		frame.setMaximumSize(new Dimension(1000, 1000));
 		frame.setSize(1000, 1000);
@@ -76,7 +89,8 @@ public class MainWindow {
 					Sound.playStartSound();
 					startGame = true;
 				} else if (e.getSource() == howtoplay) {
-					
+					canvas_htp.setVisible(true); 
+					htpframe.setVisible(true);
 				} else {
 					
 				}

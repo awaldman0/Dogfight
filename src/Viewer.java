@@ -58,8 +58,6 @@ public class Viewer extends JPanel {
 	Image enemytopview225;
 	Image enemytopview270;
 	Image enemytopview315;
-
-	
 	
 	Model gameworld = new Model(); 
 	private long increaseScore;
@@ -71,6 +69,8 @@ public class Viewer extends JPanel {
 	private int score4;
 	private int score5;
 
+	public boolean is_htp_screen = false;
+	
 	
 	public Viewer(Model World) {
 		this.gameworld = World;
@@ -154,7 +154,10 @@ public class Viewer extends JPanel {
 			gameworld.setScore(gameworld.getScore() + 1);
 		}
 		
-		if (gameworld.singleplayer) {
+		if (is_htp_screen) {
+			//draw controls 
+			drawHTP(g);
+		} else if (gameworld.singleplayer) {
 			drawEverythingSinglePlayer(g);
 		} else {
 			drawEverythingMultiplayer(g);
@@ -1509,5 +1512,70 @@ public class Viewer extends JPanel {
 		fontSet = false;
 		alreadyWrittenToFile = false;
 		scores = new ArrayList<Integer>();
+	}
+	
+	private void drawHTP(Graphics g) {
+		if (!fontSet) {
+			File fontFile = new File("pixeloid-font/PixeloidSansBold-PKnYd.ttf");
+			try {
+				pixel_font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+				fontSet = true;
+			} catch (Exception e) { 
+				e.printStackTrace();
+			} 
+			fontSet = true;
+		}
+		
+		pixel_font = pixel_font.deriveFont(Font.BOLD, 35f);
+		small_font = pixel_font.deriveFont(Font.BOLD, 25f);
+		g.setFont(pixel_font);
+		g.setColor(new Color(0, 0, 0));
+		String score = "SINGLEPLAYER";
+		char[] word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 40);
+		
+		g.setFont(small_font);
+		score = "A/D- TURN LEFT/RIGHT";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 75);
+		score = "J- SHOOT BULLET";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 105);
+		score = "K- SHOOT FIREBALLS";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 135);
+		score = "L- SHOOT MISSILE";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 165);
+		
+		g.setFont(pixel_font);
+		score = "MULTIPLAYER";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 210);
+		g.setFont(small_font);
+		score = "A/D- PLAYER 1 TURN LEFT/RIGHT";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 245);
+		score = "X- PLAYER 1 SHOOT BULLET";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 275);
+		score = "C- PLAYER 1 SHOOT FIREBALLS";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 305);
+		score = "V- PLAYER 1 SHOOT MISSILE";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 335);
+		score = "{/}- PLAYER 2 TURN LEFT/RIGHT";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 365);
+		score = "J- PLAYER 2 SHOOT BULLET";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 395);
+		score = "K- PLAYER 2 SHOOT FIREBALLS";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 425);
+		score = "L- PLAYER 2 SHOOT MISSILE";
+		word = score.toCharArray();
+		g.drawChars(word, 0, score.length(), 5, 455);
 	}
 }
