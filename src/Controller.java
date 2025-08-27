@@ -23,8 +23,8 @@ public class Controller implements KeyListener {
 	private static boolean KeyRightBracketPressed = false;
 	
 	
-	private static boolean KeyOnePressed = false;
-	private static boolean KeyTwoPressed = false;
+	private static boolean KeyRPressed = false;
+	private static boolean KeyMPressed = false;
 	
 	
 	private static final Controller instance = new Controller();
@@ -55,8 +55,8 @@ public class Controller implements KeyListener {
 			case 'l':setKeyLPressed(true);break;
 			case '[':setKeyLeftBracketPressed(true);break;
 			case ']':setKeyRightBracketPressed(true);break;
-			case '1':setKeyOnePressed(true);break;
-			case '2':setKeyOnePressed(true);break;
+			case 'r':setKeyRPressed(true);break;
+			case 'm':setKeyMPressed(true);break;
 		    default:
 		    	//System.out.println("Controller test:  Unknown key pressed");
 		        break;
@@ -82,8 +82,8 @@ public class Controller implements KeyListener {
 			case 'l':setKeyLPressed(false);break;
 			case '[':setKeyLeftBracketPressed(false);break;
 			case ']':setKeyRightBracketPressed(false);break;
-			case '1':setKeyOnePressed(false);break;
-			case '2':setKeyOnePressed(false);break;
+			case 'r':setKeyRPressed(false);break;
+			case 'm':setKeyMPressed(false);break;
 		    default:
 		    	//System.out.println("Controller test:  Unknown key pressed");
 		        break;
@@ -194,17 +194,17 @@ public class Controller implements KeyListener {
 		return KeyRightBracketPressed;
 	}
 	
-	public void setKeyOnePressed(boolean keyOnePressed) {
-		KeyOnePressed = keyOnePressed;
+	public void setKeyRPressed(boolean keyRPressed) {
+		KeyRPressed = keyRPressed;
 	}
-	public boolean isKeyOnePressed() {
-		return KeyOnePressed;
+	public boolean isKeyRPressed() {
+		return KeyRPressed;
 	}
 	
-	public void setKeyTwoPressed(boolean keyTwoPressed) {
-		KeyTwoPressed = keyTwoPressed;
+	public void setKeyMPressed(boolean keyMPressed) {
+		KeyMPressed = keyMPressed;
 	}
-	public boolean isKeyTwoPressed() {
-		return KeyTwoPressed;
+	public boolean isKeyMPressed() {
+		return KeyMPressed;
 	}
 }

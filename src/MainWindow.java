@@ -25,13 +25,15 @@ public class MainWindow {
 	public static NoiseGenerator noiseGenLand = new NoiseGenerator();
 	public static NoiseGenerator noiseGenClouds = new NoiseGenerator();
 	private static Model gameworld = new Model();
-	public static Viewer canvas = new  Viewer(gameworld);
+	public static Viewer canvas = new Viewer(gameworld);
 	private KeyListener Controller = new Controller(); 
 	private static int TargetFPS = 90;
 	public static boolean startGame = false; 
 	private JLabel BackgroundImageForStartMenu;
 	  
 	public MainWindow() {
+		gameworld.setCanvas(canvas);
+		
 		frame.setTitle("Dogfight"); 
 		frame.setMaximumSize(new Dimension(1000, 1000));
 		frame.setSize(1000, 1000);

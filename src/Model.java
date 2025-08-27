@@ -15,6 +15,8 @@ public class Model {
 	private GameObject Player2;
 	private Controller controller = Controller.getInstance();
 	
+	public Viewer canvas;
+	
 	public CopyOnWriteArrayList<GameObject> PlayerList  = new CopyOnWriteArrayList<GameObject>();
 	public CopyOnWriteArrayList<GameObject> EnemiesList  = new CopyOnWriteArrayList<GameObject>();
 	public CopyOnWriteArrayList<GameObject> ExplosionList  = new CopyOnWriteArrayList<GameObject>();
@@ -38,8 +40,6 @@ public class Model {
 	private boolean player1Alive = true;
 	private boolean player2Alive = true;
 	public boolean gameOver = false;
-	public boolean onePressed = false;
-	public boolean twoPressed = false;
 
 	public boolean singleplayer;
 	
@@ -129,7 +129,6 @@ public class Model {
 						if (temp.getHealth() <= 0) {
 							EnemiesList.remove(temp);
 							CreateExplosion(temp);
-							Sound.playExplosionSound();
 							if (!gameOver) { 
 								Sound.playExplosionSound();
 								Score += 100;
@@ -144,7 +143,6 @@ public class Model {
 					if (temp.getHealth() <= 0) {
 						EnemiesList.remove(temp);
 						CreateExplosion(temp);
-						Sound.playExplosionSound();
 						if (!gameOver) { 
 							Sound.playExplosionSound();
 							Score += 100;
@@ -154,7 +152,6 @@ public class Model {
 						if (temp.getHealth() <= 0) {
 							EnemiesList.remove(temp);
 							CreateExplosion(temp);
-							Sound.playExplosionSound();
 							if (!gameOver) {
 								Sound.playExplosionSound();
 								Score += 100;
@@ -183,7 +180,7 @@ public class Model {
 					enemyBulletList.remove(bullet);
 					Player.setHealth(Player.getHealth() - 4);
 					Sound.playHitSound();
-					if (Player.getHealth() <= 0) {
+					if (Player.getHealth() <= 0 && !gameOver) {
 						playerAlive = false;
 						CreateExplosion(Player);
 						Sound.playExplosionSound();
@@ -199,7 +196,7 @@ public class Model {
 					enemyBulletList.remove(bullet);
 					Player1.setHealth(Player1.getHealth() - 4);
 					Sound.playHitSound();
-					if (Player1.getHealth() <= 0) {
+					if (Player1.getHealth() <= 0 && !gameOver) {
 						player1Alive = false;
 						CreateExplosion(Player1);
 						PlayerList.remove(Player1);
@@ -215,7 +212,7 @@ public class Model {
 					enemyBulletList.remove(bullet);
 					Player2.setHealth(Player2.getHealth() - 4);
 					Sound.playHitSound();
-					if (Player2.getHealth() <= 0) {
+					if (Player2.getHealth() <= 0 && !gameOver) {
 						player2Alive = false;
 						CreateExplosion(Player2);
 						PlayerList.remove(Player2);
@@ -1053,6 +1050,45 @@ public class Model {
 	public void setScore(int x) { 
 		Score = x;
 	}
+	
+	public void setCanvas (Viewer c) {
+		canvas = c;
+	}
  
+	public void restart(boolean s) {
+		PlayerList  = new CopyOnWriteArrayList<GameObject>();
+		EnemiesList  = new CopyOnWriteArrayList<GameObject>();
+		ExplosionList  = new CopyOnWriteArrayList<GameObject>();
+		
+		playerBulletList  = new CopyOnWriteArrayList<GameObject>();
+		playerMissileList  = new CopyOnWriteArrayList<GameObject>();
+		playerBigFireballList  = new CopyOnWriteArrayList<GameObject>();
+		playerSmallFireballList  = new CopyOnWriteArrayList<GameObject>();
+		enemyBulletList  = new CopyOnWriteArrayList<GameObject>();
+		
+		Score = 0; 
+		lastEnemySpawned = System.currentTimeMillis();
+		playerAlive = true;
+		player1Alive = true;
+		player2Alive = true;
+		gameOver = false;
+		
+		canvas.reset();
+		singleplayer = s;
+
+		Player = new GameObject("res/topviewnormal.png",50,50,new Point3f(500,500,0), new Vector3f(0, 0, 0));
+		Player.setHealth(100);
+		Player1 = new GameObject("res/player1_0.png",50,50,new Point3f(400,500,0), new Vector3f(0, 0, 0));
+		Player1.setHealth(100);
+		Player1.setVec(new Vector3f(0, 2, 0));
+		Player1.playerAngle = 0;
+		Player2 = new GameObject("res/player2_0.png",50,50,new Point3f(600,500,0), new Vector3f(0, 0, 0));
+		Player2.setHealth(100);
+		Player2.setVec(new Vector3f(0, 2, 0));
+		Player2.playerAngle = 0;
+		lastEnemySpawned = System.currentTimeMillis();
+		PlayerList.add(Player1);
+		PlayerList.add(Player2);
+	}
 
 }

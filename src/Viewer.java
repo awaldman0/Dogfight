@@ -1,14 +1,9 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.TexturePaint;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,18 +11,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
-import util.GameObject;
 import util.Vector3f;
-import util.Point3f;
-import main.ru.aengine.noise.*;
 
 
 public class Viewer extends JPanel {
@@ -55,6 +43,24 @@ public class Viewer extends JPanel {
 	Image missileOff;
 	Image fireballOn;
 	Image fireballOff;
+	
+	Image enemybullet;
+	Image playerbullet;
+	
+	Image fireballbig;
+	Image fireballsmall;
+	
+	Image enemytopview0;
+	Image enemytopview45;
+	Image enemytopview90;
+	Image enemytopview135;
+	Image enemytopview180;
+	Image enemytopview225;
+	Image enemytopview270;
+	Image enemytopview315;
+
+	
+	
 	Model gameworld = new Model(); 
 	private long increaseScore;
 	private boolean alreadyWrittenToFile = false;
@@ -157,18 +163,24 @@ public class Viewer extends JPanel {
 	}
 	
 	private void drawEnemies(int x, int y, int width, int height, String texture, Graphics g) {
-		File TextureToLoad = new File(texture);  //should work okay on OSX and Linux but check if you have issues depending your eclipse install or if your running this without an IDE 
-		try {
-			Image myImage = ImageIO.read(TextureToLoad);
-			//The sprite is 32x32 pixel wide and 4 of them are placed together so we need to grab a different one each time 
-			//remember your training :-) computer science everything starts at 0 so 32 pixels gets us to 31  
-			int currentPositionInAnimation = ((int) (CurrentAnimationTime % 4 ) * 32); //slows down animation so every 10 frames we get another frame so every 100ms 
-			g.drawImage(myImage, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+		int currentPositionInAnimation = ((int) (CurrentAnimationTime % 4 ) * 32); //slows down animation so every 10 frames we get another frame so every 100ms 
+		if (texture == "res/enemytopview0.png") {
+			g.drawImage(enemytopview0, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview45.png") {
+			g.drawImage(enemytopview45, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview90.png") {
+			g.drawImage(enemytopview90, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview135.png") {
+			g.drawImage(enemytopview135, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview180.png") {
+			g.drawImage(enemytopview180, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview225.png") {
+			g.drawImage(enemytopview225, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else if (texture == "res/enemytopview270.png") {
+			g.drawImage(enemytopview270, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		} else {
+			g.drawImage(enemytopview315, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
+		}
 	}
 	
 	private void drawBackground(Graphics g) {
@@ -436,21 +448,21 @@ public class Viewer extends JPanel {
 				(float)(((x * sinT) + (y * cosT))), 0);
 	}
 	
-	private void drawBullet(int x, int y, int width, int height, String texture, Graphics g) {
-		File TextureToLoad = new File(texture);  //should work okay on OSX and Linux but check if you have issues depending your eclipse install or if your running this without an IDE 
-		try {
-			Image myImage = ImageIO.read(TextureToLoad); 
-			g.drawImage(myImage, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private void drawBullet(int x, int y, int width, int height, String texture, Graphics g) {		
+		if (texture == "res/bullet.png") {
+			g.drawImage(playerbullet, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
+		} else if (texture == "res/enemybullet.png"){
+			g.drawImage(enemybullet, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
+		} else if (texture == "res/fireballbig.png") {
+			g.drawImage(fireballbig, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
+		} else {
+			g.drawImage(fireballsmall, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
 		}
 	}
 	
 	
 	private void drawMissile(int x, int y, int width, int height, String texture, Graphics g) {
-		File TextureToLoad = new File(texture);  //should work okay on OSX and Linux but check if you have issues depending your eclipse install or if your running this without an IDE 
+		File TextureToLoad = new File(texture);   
 		try {
 			Image myImage = ImageIO.read(TextureToLoad); 
 			g.drawImage(myImage, x - width/2, y - width/2, x + width/2, y + height/2, 0, 0, width, height, null); 
@@ -463,11 +475,9 @@ public class Viewer extends JPanel {
 
 	
 	private void drawPlayer(int x, int y, int width, int height, String texture, Graphics g) { 
-		File TextureToLoad = new File(texture);  //should work okay on OSX and Linux but check if you have issues depending your eclipse install or if your running this without an IDE 
+		File TextureToLoad = new File(texture);   
 		try {
 			Image myImage = ImageIO.read(TextureToLoad);
-			//The sprite is 32x32 pixel wide and 4 of them are placed together so we need to grab a different one each time 
-			//remember your training :-) computer science everything starts at 0 so 32 pixels gets us to 31  
 			
 			int currentPositionInAnimation = ((int) ((CurrentAnimationTime % 40 / 10))) * 32; //slows down animation so every 10 frames we get another frame so every 100ms 
 			g.drawImage(myImage, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 32, 32, null); 
@@ -477,11 +487,6 @@ public class Viewer extends JPanel {
 			e.printStackTrace();
 		} 
 		 
-		//g.drawImage(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer));
-		//Lighnting Png from https://opengameart.org/content/animated-spaceships  its 32x32 thats why I know to increament by 32 each time 
-		// Bullets from https://opengameart.org/forumtopic/tatermands-art 
-		// background image from https://www.needpix.com/photo/download/677346/space-stars-nebula-background-galaxy-universe-free-pictures-free-photos-free-images
-		
 	}
 	
 	private void drawHUD(Graphics g) {
@@ -495,6 +500,23 @@ public class Viewer extends JPanel {
 			File fireballOnFile = new File("res/fireballon.png");
 			File fireballOffFile = new File("res/fireballoff.png");
 			
+			//create rest of the files here
+			File enemybulletFile = new File("res/enemybullet.png");
+			
+			File playerbulletFile = new File("res/bullet.png");
+			
+			File enemytopview0File = new File("res/enemytopview0.png");
+			File enemytopview45File = new File("res/enemytopview45.png");
+			File enemytopview90File = new File("res/enemytopview90.png");
+			File enemytopview135File = new File("res/enemytopview135.png");
+			File enemytopview180File = new File("res/enemytopview180.png");
+			File enemytopview225File = new File("res/enemytopview225.png");
+			File enemytopview270File = new File("res/enemytopview270.png");
+			File enemytopview315File = new File("res/enemytopview315.png");
+
+			File fireballbigFile = new File("res/fireballbig.png");
+			File fireballsmallFile = new File("res/fireballsmall.png");
+
 			try {
 				bulletOn = ImageIO.read(bulletOnFile);
 				bulletOff = ImageIO.read(bulletOffFile);
@@ -502,6 +524,22 @@ public class Viewer extends JPanel {
 				missileOff = ImageIO.read(missileOffFile);
 				fireballOn = ImageIO.read(fireballOnFile);
 				fireballOff = ImageIO.read(fireballOffFile);
+				
+				//read in rest of files here
+				enemybullet = ImageIO.read(enemybulletFile);
+				playerbullet = ImageIO.read(playerbulletFile);
+				enemytopview0 = ImageIO.read(enemytopview0File);
+				enemytopview45 = ImageIO.read(enemytopview45File);
+				enemytopview90 = ImageIO.read(enemytopview90File);
+				enemytopview135 = ImageIO.read(enemytopview135File);
+				enemytopview180 = ImageIO.read(enemytopview180File);
+				enemytopview225 = ImageIO.read(enemytopview225File);
+				enemytopview270 = ImageIO.read(enemytopview270File);
+				enemytopview315 = ImageIO.read(enemytopview315File);
+
+				fireballbig = ImageIO.read(fireballbigFile);
+				fireballsmall = ImageIO.read(fireballsmallFile);
+				
 				pixel_font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 				small_font = pixel_font;
 				fontSet = true;
@@ -734,7 +772,6 @@ public class Viewer extends JPanel {
 		
 		drawBackground(g);
 		
-		
 		//figure out proper sprite to use for enemies and if they need to shoot at player
 		//but don't draw the enemy yet bc we want to draw enemies after drawing the bullets
 		gameworld.getEnemies().forEach((temp) -> 
@@ -952,10 +989,11 @@ public class Viewer extends JPanel {
 		
 		if(gameworld.gameOver) {
 			drawEndScreen(g);
-			if (Controller.getInstance().isKeyOnePressed()) {
-				gameworld.onePressed = true;
-			} else if (Controller.getInstance().isKeyTwoPressed()) {
-				gameworld.twoPressed = true;
+			if (Controller.getInstance().isKeyRPressed()) {
+				//restart
+				gameworld.restart(true);
+			} else if (Controller.getInstance().isKeyMPressed()) {
+				gameworld.restart(false);
 			}
 		}
 	}
@@ -1174,10 +1212,10 @@ public class Viewer extends JPanel {
 		
 		if(gameworld.gameOver) {
 			drawEndScreen(g);
-			if (Controller.getInstance().isKeyOnePressed()) {
-				gameworld.onePressed = true;
-			} else if (Controller.getInstance().isKeyTwoPressed()) {
-				gameworld.twoPressed = true;
+			if (Controller.getInstance().isKeyRPressed()) {
+				gameworld.restart(false);
+			} else if (Controller.getInstance().isKeyMPressed()) {
+				gameworld.restart(true);
 			}
 		}
 	}
@@ -1266,6 +1304,23 @@ public class Viewer extends JPanel {
 			File fireballOnFile = new File("res/fireballon.png");
 			File fireballOffFile = new File("res/fireballoff.png");
 			
+			//create rest of the files here
+			File enemybulletFile = new File("res/enemybullet.png");
+			
+			File playerbulletFile = new File("res/bullet.png");
+			
+			File enemytopview0File = new File("res/enemytopview0.png");
+			File enemytopview45File = new File("res/enemytopview45.png");
+			File enemytopview90File = new File("res/enemytopview90.png");
+			File enemytopview135File = new File("res/enemytopview135.png");
+			File enemytopview180File = new File("res/enemytopview180.png");
+			File enemytopview225File = new File("res/enemytopview225.png");
+			File enemytopview270File = new File("res/enemytopview270.png");
+			File enemytopview315File = new File("res/enemytopview315.png");
+
+			File fireballbigFile = new File("res/fireballbig.png");
+			File fireballsmallFile = new File("res/fireballsmall.png");
+			
 			try {
 				bulletOn = ImageIO.read(bulletOnFile);
 				bulletOff = ImageIO.read(bulletOffFile);
@@ -1273,6 +1328,22 @@ public class Viewer extends JPanel {
 				missileOff = ImageIO.read(missileOffFile);
 				fireballOn = ImageIO.read(fireballOnFile);
 				fireballOff = ImageIO.read(fireballOffFile);
+				
+				//read in rest of files here
+				enemybullet = ImageIO.read(enemybulletFile);
+				playerbullet = ImageIO.read(playerbulletFile);
+				enemytopview0 = ImageIO.read(enemytopview0File);
+				enemytopview45 = ImageIO.read(enemytopview45File);
+				enemytopview90 = ImageIO.read(enemytopview90File);
+				enemytopview135 = ImageIO.read(enemytopview135File);
+				enemytopview180 = ImageIO.read(enemytopview180File);
+				enemytopview225 = ImageIO.read(enemytopview225File);
+				enemytopview270 = ImageIO.read(enemytopview270File);
+				enemytopview315 = ImageIO.read(enemytopview315File);
+
+				fireballbig = ImageIO.read(fireballbigFile);
+				fireballsmall = ImageIO.read(fireballsmallFile);
+				
 				pixel_font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 				small_font = pixel_font;
 				fontSet = true;
@@ -1415,5 +1486,22 @@ public class Viewer extends JPanel {
 		} else {
 			g.drawImage(missileOff, 850, 10, 850 + 128, 10 + 128, 0, 0, 64, 64, null);
 		}
+	}
+	
+	public void reset() {
+		generateWorld();
+		CurrentAnimationTime = 0;
+		xOffsetLand = 0;
+		yOffsetLand = 0;
+		xOffsetClouds = 0;
+		yOffsetClouds = 0;
+		currRotationAngle = 0;
+
+		bufferSize = 25; 
+		startingX = 500;
+		startingY = 500;
+		fontSet = false;
+		alreadyWrittenToFile = false;
+		scores = new ArrayList<Integer>();
 	}
 }
