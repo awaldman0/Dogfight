@@ -104,22 +104,22 @@ public class MainWindow {
 				}
 			}
 		};
-		singleplayer.setBounds(125, 575, 300, 60); 
+		singleplayer.setBounds(140, 515, 300, 60); 
 		singleplayer.addActionListener(x);  
 		frame.add(singleplayer);
 		singleplayer.setVisible(true);
 		
-		multiplayer.setBounds(525, 575, 300, 60); 
+		multiplayer.setBounds(550, 515, 300, 60); 
 		multiplayer.addActionListener(x);
 		frame.add(multiplayer);
 		multiplayer.setVisible(true);
 		
-		howtoplay.setBounds(125, 675, 300, 60);
+		howtoplay.setBounds(140, 615, 300, 60);
 		howtoplay.addActionListener(x);
 		frame.add(howtoplay);
 		howtoplay.setVisible(true);
 		
-		clear.setBounds(525, 675, 300, 60);
+		clear.setBounds(550, 615, 300, 60);
 		clear.addActionListener(x);
 		frame.add(clear);
 		clear.setVisible(true);
@@ -129,7 +129,7 @@ public class MainWindow {
 		try {
 			 BufferedImage myPicture = ImageIO.read(BackroundToLoad);
 			 BackgroundImageForStartMenu = new JLabel(new ImageIcon(myPicture));
-			 BackgroundImageForStartMenu.setBounds(0, 0, 1000, 1000);
+			 BackgroundImageForStartMenu.setBounds(-7, -25, 1000, 1000);
 			 frame.add(BackgroundImageForStartMenu); 
 		}  catch (IOException e) { 
 			e.printStackTrace();
