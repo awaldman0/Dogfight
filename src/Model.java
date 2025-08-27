@@ -427,11 +427,11 @@ public class Model {
 	
 
 	private void CreatePlayerBullet() {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(Player.getCentre().getX() + r.nextInt(15) - 15, Player.getCentre().getY() + r.nextInt(15) - 15,0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
+		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(Player.getCentre().getX() + r.nextInt(15) - 16, Player.getCentre().getY() + r.nextInt(15) - 16,0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
 	}
 	
 	private void CreatePlayerBulletMultiplayer(GameObject obj) {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(obj.getCentre().getX() + r.nextInt(15) - 15, obj.getCentre().getY() + r.nextInt(15) - 15,0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
+		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(obj.getCentre().getX() + r.nextInt(15) - 16, obj.getCentre().getY() + r.nextInt(15) - 16,0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
 	}
 	
 

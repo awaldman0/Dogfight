@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -92,7 +93,14 @@ public class MainWindow {
 					canvas_htp.setVisible(true); 
 					htpframe.setVisible(true);
 				} else {
-					
+					 try {
+					      FileWriter x = new FileWriter("src/singleplayerscores.txt", false);
+					      x.close();
+					      FileWriter y = new FileWriter("src/multiplayerscores.txt", false);
+					      y.close();
+					    } catch (IOException e1) {
+					      e1.printStackTrace();
+					    }
 				}
 			}
 		};
@@ -156,9 +164,4 @@ public class MainWindow {
 		// view update 
 		canvas.updateview(); 
 	}
-	
-	private void setup() {
-		
-	}
-	
 }
