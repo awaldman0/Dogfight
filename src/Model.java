@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -13,7 +11,6 @@ public class Model {
 	private GameObject Player;
 	private GameObject Player1;
 	private GameObject Player2;
-	private Controller controller = Controller.getInstance();
 	
 	public Viewer canvas;
 	
