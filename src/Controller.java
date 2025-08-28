@@ -58,11 +58,9 @@ public class Controller implements KeyListener {
 			case 'r':setKeyRPressed(true);break;
 			case 'm':setKeyMPressed(true);break;
 		    default:
-		    	//System.out.println("Controller test:  Unknown key pressed");
 		        break;
 		}  
 		
-	 // You can implement to keep moving while pressing the key here . 
 		
 	}
 

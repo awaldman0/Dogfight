@@ -235,7 +235,6 @@ public class Model {
 	}
 
 	private void enemyLogic() {
-		// TODO Auto-generated method stub
 		for (GameObject temp : EnemiesList) {
 		    // Move enemies 
 			

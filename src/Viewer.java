@@ -75,28 +75,22 @@ public class Viewer extends JPanel {
 	public Viewer(Model World) {
 		this.gameworld = World;
 		this.increaseScore = System.currentTimeMillis();
-		// TODO Auto-generated constuctor stub
 	}
 
 	public Viewer(LayoutManager layout) {
 		super(layout);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Viewer(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Viewer(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void updateview() {
-		this.repaint();
-		// TODO Auto-generated method stub
-		
+		this.repaint();		
 	}
 	
 	public int getRotationAngle() {
@@ -166,7 +160,7 @@ public class Viewer extends JPanel {
 	}
 	
 	private void drawEnemies(int x, int y, int width, int height, String texture, Graphics g) {
-		int currentPositionInAnimation = ((int) (CurrentAnimationTime % 4 ) * 32); //slows down animation so every 10 frames we get another frame so every 100ms 
+		int currentPositionInAnimation = ((int) (CurrentAnimationTime % 4 ) * 32); 
 		if (texture == "res/enemytopview0.png") {
 			g.drawImage(enemytopview0, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
 		} else if (texture == "res/enemytopview45.png") {
@@ -471,7 +465,6 @@ public class Viewer extends JPanel {
 			g.drawImage(myImage, x - width/2, y - width/2, x + width/2, y + height/2, 0, 0, width, height, null); 
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -482,11 +475,10 @@ public class Viewer extends JPanel {
 		try {
 			Image myImage = ImageIO.read(TextureToLoad);
 			
-			int currentPositionInAnimation = ((int) ((CurrentAnimationTime % 40 / 10))) * 32; //slows down animation so every 10 frames we get another frame so every 100ms 
+			int currentPositionInAnimation = ((int) ((CurrentAnimationTime % 40 / 10))) * 32; 
 			g.drawImage(myImage, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 32, 32, null); 
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		 
