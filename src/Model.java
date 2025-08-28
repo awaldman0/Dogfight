@@ -45,13 +45,13 @@ public class Model {
 	
 	public Model() {
 		//Player 
-		Player = new GameObject("res/topviewnormal.png",50,50,new Point3f(500,500,0), new Vector3f(0, 0, 0));
+		Player = new GameObject("res\\topviewnormal.png",50,50,new Point3f(500,500,0), new Vector3f(0, 0, 0));
 		Player.setHealth(100);
-		Player1 = new GameObject("res/player1_0.png",50,50,new Point3f(400,500,0), new Vector3f(0, 0, 0));
+		Player1 = new GameObject("res\\player1_0.png",50,50,new Point3f(400,500,0), new Vector3f(0, 0, 0));
 		Player1.setHealth(100);
 		Player1.setVec(new Vector3f(0, 2, 0));
 		Player1.playerAngle = 0;
-		Player2 = new GameObject("res/player2_0.png",50,50,new Point3f(600,500,0), new Vector3f(0, 0, 0));
+		Player2 = new GameObject("res\\player2_0.png",50,50,new Point3f(600,500,0), new Vector3f(0, 0, 0));
 		Player2.setHealth(100);
 		Player2.setVec(new Vector3f(0, 2, 0));
 		Player2.playerAngle = 0;
@@ -359,14 +359,14 @@ public class Model {
 	private void playerLogic() {
 		//smoother animation is possible if we make a target position  // done but may try to change things for students  
 		//check for movement and if you fired a bullet 
-		Player.setTexture("res/topviewnormal.png");  
+		Player.setTexture("res\\topviewnormal.png");  
 		
 		if (Controller.getInstance().isKeyAPressed()) {
-			Player.setTexture("res/leftturnnormal.png");
+			Player.setTexture("res\\leftturnnormal.png");
 		}
 		
 		if (Controller.getInstance().isKeyDPressed()) {
-			Player.setTexture("res/rightturnnormal.png");
+			Player.setTexture("res\\rightturnnormal.png");
 		}
 		
 		if (Controller.getInstance().isKeyJPressed()) {
@@ -407,7 +407,7 @@ public class Model {
 			float x = vec.getX();
 			vec.setX(-1 * x);
 			//give a bit of variation to bullet trajectories so they don't hit the player every time
-			enemyBulletList.add(new GameObject("res/enemybullet.png", 10, 10, new Point3f(obj.getCentre().getX() + 16, obj.getCentre().getY() + 16, 0.0f), vec));
+			enemyBulletList.add(new GameObject("res\\enemybullet.png", 10, 10, new Point3f(obj.getCentre().getX() + 16, obj.getCentre().getY() + 16, 0.0f), vec));
 			obj.lastBullet = System.currentTimeMillis();
 		}
 	}
@@ -419,23 +419,23 @@ public class Model {
 			vec = MainWindow.canvas.turnBy(vec.byScalar(4.5f).NegateVector(), (r.nextInt(40) - 20));
 			float x = vec.getX();
 			vec.setX(-1 * x);
-			enemyBulletList.add(new GameObject("res/enemybullet.png", 10, 10, new Point3f(obj.getCentre().getX() + 16, obj.getCentre().getY() + 16, 0.0f), vec));
+			enemyBulletList.add(new GameObject("res\\enemybullet.png", 10, 10, new Point3f(obj.getCentre().getX() + 16, obj.getCentre().getY() + 16, 0.0f), vec));
 			obj.lastBullet = System.currentTimeMillis();
 		}
 	}
 	
 
 	private void CreatePlayerBullet() {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(Player.getCentre().getX(),  Player.getCentre().getY(),0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
+		playerBulletList.add(new GameObject("res\\bullet.png", 12, 12 , new Point3f(Player.getCentre().getX(),  Player.getCentre().getY(),0.0f), MainWindow.canvas.turn(new Vector3f(0, 7, 0))));
 	}
 	
 	private void CreatePlayerBulletMultiplayer(GameObject obj) {
-		playerBulletList.add(new GameObject("res/bullet.png", 12, 12 , new Point3f(obj.getCentre().getX(), obj.getCentre().getY(),0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
+		playerBulletList.add(new GameObject("res\\bullet.png", 12, 12 , new Point3f(obj.getCentre().getX(), obj.getCentre().getY(),0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 7, 0), obj.playerAngle)));
 	}
 	
 
 	private void CreateMissile() {
-		GameObject missile = new GameObject("res/blankSprite.png", 32, 32, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2,0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0)));
+		GameObject missile = new GameObject("res\\blankSprite.png", 32, 32, new Point3f(MainWindow.frame.getWidth()/2, MainWindow.frame.getHeight()/2,0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0)));
 		GameObject closest = null;
 		float minDist = Float.MAX_VALUE;
 		for (GameObject temp : EnemiesList) {
@@ -454,7 +454,7 @@ public class Model {
 	}
 	
 	private void CreateMissileMultiplayer(GameObject obj) {
-		GameObject missile = new GameObject("res/blankSprite.png", 32, 32, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(),0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 3, 0), obj.playerAngle));
+		GameObject missile = new GameObject("res\\blankSprite.png", 32, 32, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(),0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 3, 0), obj.playerAngle));
 		GameObject closest = null;
 		float minDist = Float.MAX_VALUE;
 		for (GameObject temp : EnemiesList) {
@@ -473,31 +473,31 @@ public class Model {
 	}
 	
 	private void CreateFireball() {
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, -3, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(3, 0, 0))));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-3, 0, 0))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, 1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, -1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, 1, 0).Normal().byScalar(4))));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, -1, 0).Normal().byScalar(4))));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, 3, 0))));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(0, -3, 0))));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(3, 0, 0))));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-3, 0, 0))));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, 1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(1, -1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, 1, 0).Normal().byScalar(4))));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(Player.getCentre().getX(), Player.getCentre().getY(), 0.0f), MainWindow.canvas.turn(new Vector3f(-1, -1, 0).Normal().byScalar(4))));
 	}
 	
 	private void CreateFireballMultiplayer(GameObject obj) {
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 3, 0), obj.playerAngle)));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(0, -3, 0), obj.playerAngle)));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(3, 0, 0), obj.playerAngle)));
-		playerBigFireballList.add(new GameObject("res/fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-3, 0, 0), obj.playerAngle)));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(1, 1, 0).Normal().byScalar(4), obj.playerAngle)));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(1, -1, 0).Normal().byScalar(4), obj.playerAngle)));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-1, 1, 0).Normal().byScalar(4), obj.playerAngle)));
-		playerSmallFireballList.add(new GameObject("res/fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-1, -1, 0).Normal().byScalar(4), obj.playerAngle)));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(0, 3, 0), obj.playerAngle)));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(0, -3, 0), obj.playerAngle)));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(3, 0, 0), obj.playerAngle)));
+		playerBigFireballList.add(new GameObject("res\\fireballbig.png", 30, 30, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-3, 0, 0), obj.playerAngle)));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(1, 1, 0).Normal().byScalar(4), obj.playerAngle)));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(1, -1, 0).Normal().byScalar(4), obj.playerAngle)));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-1, 1, 0).Normal().byScalar(4), obj.playerAngle)));
+		playerSmallFireballList.add(new GameObject("res\\fireballsmall.png", 25, 25, new Point3f(obj.getCentre().getX(), obj.getCentre().getY(), 0.0f), MainWindow.canvas.turnBy(new Vector3f(-1, -1, 0).Normal().byScalar(4), obj.playerAngle)));
 	}
 
 
 	
 	private void CreateExplosion(GameObject temp) {
-		GameObject explosion = new GameObject("res/explosion1.png", 64, 64, new Point3f(temp.getCentre().getX(), temp.getCentre().getY(),0.0f), new Vector3f(0, 0, 0));
+		GameObject explosion = new GameObject("res\\explosion1.png", 64, 64, new Point3f(temp.getCentre().getX(), temp.getCentre().getY(),0.0f), new Vector3f(0, 0, 0));
 		ExplosionList.add(explosion);
 	}
 	
@@ -524,7 +524,7 @@ public class Model {
 				enemyy = MainWindow.frame.getHeight() + 40;
 			}
 			
-			GameObject enemy = new GameObject("res/blankSprite.png",50,50,
+			GameObject enemy = new GameObject("res\\blankSprite.png",50,50,
 					new Point3f(enemyx, enemyy, 0), new Vector3f(playerx - enemyx, playery - enemyy, 0).Normal());
 			enemy.setHealth(100);
 			enemy.bulletDelay = enemyBulletDelay + r.nextInt(200);;
@@ -554,60 +554,60 @@ public class Model {
 		if (Controller.getInstance().isKeyAPressed() && MainWindow.canvas.CurrentAnimationTime % 10 == 0) {
 			Vector3f vec;
 			switch(Player1.getTexture()) {
-			case "res/player1_0.png":
+			case "res\\player1_0.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_45.png");
+				Player1.setTexture("res\\player1_45.png");
 				Player1.playerAngle = 45;
 				break;
-			case "res/player1_45.png":
+			case "res\\player1_45.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_90.png");
+				Player1.setTexture("res\\player1_90.png");
 				Player1.playerAngle = 90;
 				break;
-			case "res/player1_90.png":
+			case "res\\player1_90.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_135.png");
+				Player1.setTexture("res\\player1_135.png");
 				Player1.playerAngle = 135;
 				break;
-			case "res/player1_135.png":
+			case "res\\player1_135.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_180.png");
+				Player1.setTexture("res\\player1_180.png");
 				Player1.playerAngle = 180;
 				break;
-			case "res/player1_180.png":
+			case "res\\player1_180.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_225.png");
+				Player1.setTexture("res\\player1_225.png");
 				Player1.playerAngle = 225;
 				break;
-			case "res/player1_225.png":
+			case "res\\player1_225.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_270.png");
+				Player1.setTexture("res\\player1_270.png");
 				Player1.playerAngle = 270;
 				break;
-			case "res/player1_270.png":
+			case "res\\player1_270.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_315.png");
+				Player1.setTexture("res\\player1_315.png");
 				Player1.playerAngle = 315;
 				break;
-			case "res/player1_315.png":
+			case "res\\player1_315.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), 45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_0.png");
+				Player1.setTexture("res\\player1_0.png");
 				Player1.playerAngle = 0;
 				break;
 			default:
@@ -618,60 +618,60 @@ public class Model {
 		if (Controller.getInstance().isKeyDPressed() && MainWindow.canvas.CurrentAnimationTime % 10 == 0) {
 			Vector3f vec;
 			switch(Player1.getTexture()) {
-			case "res/player1_0.png":
+			case "res\\player1_0.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_315.png");
+				Player1.setTexture("res\\player1_315.png");
 				Player1.playerAngle = 315;
 				break;
-			case "res/player1_45.png":
+			case "res\\player1_45.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_0.png");
+				Player1.setTexture("res\\player1_0.png");
 				Player1.playerAngle = 0;
 				break;
-			case "res/player1_90.png":
+			case "res\\player1_90.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_45.png");
+				Player1.setTexture("res\\player1_45.png");
 				Player1.playerAngle = 45;
 				break;
-			case "res/player1_135.png":
+			case "res\\player1_135.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_90.png");
+				Player1.setTexture("res\\player1_90.png");
 				Player1.playerAngle = 90;
 				break;
-			case "res/player1_180.png":
+			case "res\\player1_180.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_135.png");
+				Player1.setTexture("res\\player1_135.png");
 				Player1.playerAngle = 135;
 				break;
-			case "res/player1_225.png":
+			case "res\\player1_225.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_180.png");
+				Player1.setTexture("res\\player1_180.png");
 				Player1.playerAngle = 180;
 				break;
-			case "res/player1_270.png":
+			case "res\\player1_270.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_225.png");
+				Player1.setTexture("res\\player1_225.png");
 				Player1.playerAngle = 225;
 				break;
-			case "res/player1_315.png":
+			case "res\\player1_315.png":
 				vec = MainWindow.canvas.turnBy(Player1.getVec(), -45);
 				Player1.getCentre().ApplyVector(vec); 
 				Player1.setVec(vec);
-				Player1.setTexture("res/player1_270.png");
+				Player1.setTexture("res\\player1_270.png");
 				Player1.playerAngle = 270;
 				break;
 			default:
@@ -724,60 +724,60 @@ public class Model {
 		if (Controller.getInstance().isKeyLeftBracketPressed() && MainWindow.canvas.CurrentAnimationTime % 10 == 0) {
 			Vector3f vec;
 			switch(Player2.getTexture()) {
-			case "res/player2_0.png":
+			case "res\\player2_0.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_45.png");
+				Player2.setTexture("res\\player2_45.png");
 				Player2.playerAngle = 45;
 				break;
-			case "res/player2_45.png":
+			case "res\\player2_45.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_90.png");
+				Player2.setTexture("res\\player2_90.png");
 				Player2.playerAngle = 90;
 				break;
-			case "res/player2_90.png":
+			case "res\\player2_90.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_135.png");
+				Player2.setTexture("res\\player2_135.png");
 				Player2.playerAngle = 135;
 				break;
-			case "res/player2_135.png":
+			case "res\\player2_135.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_180.png");
+				Player2.setTexture("res\\player2_180.png");
 				Player2.playerAngle = 180;
 				break;
-			case "res/player2_180.png":
+			case "res\\player2_180.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_225.png");
+				Player2.setTexture("res\\player2_225.png");
 				Player2.playerAngle = 225;
 				break;
-			case "res/player2_225.png":
+			case "res\\player2_225.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_270.png");
+				Player2.setTexture("res\\player2_270.png");
 				Player2.playerAngle = 270;
 				break;
-			case "res/player2_270.png":
+			case "res\\player2_270.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_315.png");
+				Player2.setTexture("res\\player2_315.png");
 				Player2.playerAngle = 315;
 				break;
-			case "res/player2_315.png":
+			case "res\\player2_315.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), 45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_0.png");
+				Player2.setTexture("res\\player2_0.png");
 				Player2.playerAngle = 0;
 				break;
 			default:
@@ -788,60 +788,60 @@ public class Model {
 		if (Controller.getInstance().isKeyRightBracketPressed() && MainWindow.canvas.CurrentAnimationTime % 10 == 0) {
 			Vector3f vec;
 			switch(Player2.getTexture()) {
-			case "res/player2_0.png":
+			case "res\\player2_0.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_315.png");
+				Player2.setTexture("res\\player2_315.png");
 				Player2.playerAngle = 315;
 				break;
-			case "res/player2_45.png":
+			case "res\\player2_45.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_0.png");
+				Player2.setTexture("res\\player2_0.png");
 				Player2.playerAngle = 0;
 				break;
-			case "res/player2_90.png":
+			case "res\\player2_90.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_45.png");
+				Player2.setTexture("res\\player2_45.png");
 				Player2.playerAngle = 45;
 				break;
-			case "res/player2_135.png":
+			case "res\\player2_135.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_90.png");
+				Player2.setTexture("res\\player2_90.png");
 				Player2.playerAngle = 90;
 				break;
-			case "res/player2_180.png":
+			case "res\\player2_180.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_135.png");
+				Player2.setTexture("res\\player2_135.png");
 				Player2.playerAngle = 135;
 				break;
-			case "res/player2_225.png":
+			case "res\\player2_225.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_180.png");
+				Player2.setTexture("res\\player2_180.png");
 				Player2.playerAngle = 180;
 				break;
-			case "res/player2_270.png":
+			case "res\\player2_270.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_225.png");
+				Player2.setTexture("res\\player2_225.png");
 				Player2.playerAngle = 225;
 				break;
-			case "res/player2_315.png":
+			case "res\\player2_315.png":
 				vec = MainWindow.canvas.turnBy(Player2.getVec(), -45);
 				Player2.getCentre().ApplyVector(vec); 
 				Player2.setVec(vec);
-				Player2.setTexture("res/player2_270.png");
+				Player2.setTexture("res\\player2_270.png");
 				Player2.playerAngle = 270;
 				break;
 			default:
@@ -984,7 +984,7 @@ public class Model {
 				enemyy = MainWindow.frame.getHeight() + 40;
 			}
 			
-			GameObject enemy = new GameObject("res/blankSprite.png",50,50,
+			GameObject enemy = new GameObject("res\\blankSprite.png",50,50,
 					new Point3f(enemyx, enemyy, 0), new Vector3f(playerx - enemyx, playery - enemyy, 0).Normal());
 			enemy.setHealth(100);
 			enemy.bulletDelay = enemyBulletDelay + r.nextInt(200);
@@ -1081,13 +1081,13 @@ public class Model {
 		canvas.reset();
 		singleplayer = s;
 
-		Player = new GameObject("res/topviewnormal.png",50,50,new Point3f(500,500,0), new Vector3f(0, 0, 0));
+		Player = new GameObject("res\\topviewnormal.png",50,50,new Point3f(500,500,0), new Vector3f(0, 0, 0));
 		Player.setHealth(100);
-		Player1 = new GameObject("res/player1_0.png",50,50,new Point3f(400,500,0), new Vector3f(0, 0, 0));
+		Player1 = new GameObject("res\\player1_0.png",50,50,new Point3f(400,500,0), new Vector3f(0, 0, 0));
 		Player1.setHealth(100);
 		Player1.setVec(new Vector3f(0, 2, 0));
 		Player1.playerAngle = 0;
-		Player2 = new GameObject("res/player2_0.png",50,50,new Point3f(600,500,0), new Vector3f(0, 0, 0));
+		Player2 = new GameObject("res\\player2_0.png",50,50,new Point3f(600,500,0), new Vector3f(0, 0, 0));
 		Player2.setHealth(100);
 		Player2.setVec(new Vector3f(0, 2, 0));
 		Player2.playerAngle = 0;
