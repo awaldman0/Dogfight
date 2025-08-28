@@ -118,9 +118,9 @@ public class MainWindow {
 		clear.setVisible(true);
 
 		//loading background image 
-		File BackroundToLoad = new File("res/titleScreen.png");  
+		//File BackroundToLoad = new File("res/titleScreen.png");  
 		try {
-			 BufferedImage myPicture = ImageIO.read(BackroundToLoad);
+			 BufferedImage myPicture = ImageIO.read(getClass().getResource("titleScreen.png"));
 			 BackgroundImageForStartMenu = new JLabel(new ImageIcon(myPicture));
 			 BackgroundImageForStartMenu.setBounds(-7, -25, 1000, 1000);
 			 frame.add(BackgroundImageForStartMenu); 
