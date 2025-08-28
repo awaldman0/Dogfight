@@ -94,9 +94,9 @@ public class MainWindow {
 					htpframe.setVisible(true);
 				} else {
 					 try {
-					      FileWriter x = new FileWriter("src\\singleplayerscores.txt", false);
+					      FileWriter x = new FileWriter("src/singleplayerscores.txt", false);
 					      x.close();
-					      FileWriter y = new FileWriter("src\\multiplayerscores.txt", false);
+					      FileWriter y = new FileWriter("src/multiplayerscores.txt", false);
 					      y.close();
 					    } catch (IOException e1) {
 					      e1.printStackTrace();
@@ -125,7 +125,7 @@ public class MainWindow {
 		clear.setVisible(true);
 
 		//loading background image 
-		File BackroundToLoad = new File("res\\titleScreen.png");  
+		File BackroundToLoad = new File("res/titleScreen.png");  
 		try {
 			 BufferedImage myPicture = ImageIO.read(BackroundToLoad);
 			 BackgroundImageForStartMenu = new JLabel(new ImageIcon(myPicture));

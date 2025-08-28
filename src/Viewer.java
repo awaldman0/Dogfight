@@ -161,19 +161,19 @@ public class Viewer extends JPanel {
 	
 	private void drawEnemies(int x, int y, int width, int height, String texture, Graphics g) {
 		int currentPositionInAnimation = ((int) (CurrentAnimationTime % 4 ) * 32); 
-		if (texture == "res\\enemytopview0.png") {
+		if (texture == "res/enemytopview0.png") {
 			g.drawImage(enemytopview0, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview45.png") {
+		} else if (texture == "res/enemytopview45.png") {
 			g.drawImage(enemytopview45, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview90.png") {
+		} else if (texture == "res/enemytopview90.png") {
 			g.drawImage(enemytopview90, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview135.png") {
+		} else if (texture == "res/enemytopview135.png") {
 			g.drawImage(enemytopview135, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview180.png") {
+		} else if (texture == "res/enemytopview180.png") {
 			g.drawImage(enemytopview180, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview225.png") {
+		} else if (texture == "res/enemytopview225.png") {
 			g.drawImage(enemytopview225, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
-		} else if (texture == "res\\enemytopview270.png") {
+		} else if (texture == "res/enemytopview270.png") {
 			g.drawImage(enemytopview270, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
 		} else {
 			g.drawImage(enemytopview315, x - width/2, y - height/2, x + width/2, y + height/2, currentPositionInAnimation, 0, currentPositionInAnimation + 31, 32, null); 
@@ -446,11 +446,11 @@ public class Viewer extends JPanel {
 	}
 	
 	private void drawBullet(int x, int y, int width, int height, String texture, Graphics g) {		
-		if (texture == "res\\bullet.png") {
+		if (texture == "res/bullet.png") {
 			g.drawImage(playerbullet, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
-		} else if (texture == "res\\enemybullet.png"){
+		} else if (texture == "res/enemybullet.png"){
 			g.drawImage(enemybullet, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
-		} else if (texture == "res\\fireballbig.png") {
+		} else if (texture == "res/fireballbig.png") {
 			g.drawImage(fireballbig, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
 		} else {
 			g.drawImage(fireballsmall, x - height/2, y - height/2, x + width/2, y + height/2, 0, 0, 10, 10, null); 
@@ -488,29 +488,29 @@ public class Viewer extends JPanel {
 		//display score, weapon availability/cooldown, health bar
 		if (!fontSet) {
 			File fontFile = new File("pixeloid-font/PixeloidSansBold-PKnYd.ttf");
-			File bulletOnFile = new File("res\\bulleton.png");
-			File bulletOffFile = new File("res\\bulletoff.png");
-			File missileOnFile = new File("res\\missileon.png");
-			File missileOffFile = new File("res\\missileoff.png");
-			File fireballOnFile = new File("res\\fireballon.png");
-			File fireballOffFile = new File("res\\fireballoff.png");
+			File bulletOnFile = new File("res/bulleton.png");
+			File bulletOffFile = new File("res/bulletoff.png");
+			File missileOnFile = new File("res/missileon.png");
+			File missileOffFile = new File("res/missileoff.png");
+			File fireballOnFile = new File("res/fireballon.png");
+			File fireballOffFile = new File("res/fireballoff.png");
 			
 			//create rest of the files here
-			File enemybulletFile = new File("res\\enemybullet.png");
+			File enemybulletFile = new File("res/enemybullet.png");
 			
-			File playerbulletFile = new File("res\\bullet.png");
+			File playerbulletFile = new File("res/bullet.png");
 			
-			File enemytopview0File = new File("res\\enemytopview0.png");
-			File enemytopview45File = new File("res\\enemytopview45.png");
-			File enemytopview90File = new File("res\\enemytopview90.png");
-			File enemytopview135File = new File("res\\enemytopview135.png");
-			File enemytopview180File = new File("res\\enemytopview180.png");
-			File enemytopview225File = new File("res\\enemytopview225.png");
-			File enemytopview270File = new File("res\\enemytopview270.png");
-			File enemytopview315File = new File("res\\enemytopview315.png");
+			File enemytopview0File = new File("res/enemytopview0.png");
+			File enemytopview45File = new File("res/enemytopview45.png");
+			File enemytopview90File = new File("res/enemytopview90.png");
+			File enemytopview135File = new File("res/enemytopview135.png");
+			File enemytopview180File = new File("res/enemytopview180.png");
+			File enemytopview225File = new File("res/enemytopview225.png");
+			File enemytopview270File = new File("res/enemytopview270.png");
+			File enemytopview315File = new File("res/enemytopview315.png");
 
-			File fireballbigFile = new File("res\\fireballbig.png");
-			File fireballsmallFile = new File("res\\fireballsmall.png");
+			File fireballbigFile = new File("res/fireballbig.png");
+			File fireballsmallFile = new File("res/fireballsmall.png");
 
 			try {
 				bulletOn = ImageIO.read(bulletOnFile);
@@ -613,11 +613,11 @@ public class Viewer extends JPanel {
 	public void drawEndScreen(Graphics g) {
 		if (gameworld.singleplayer && !alreadyWrittenToFile) {
 			try {
-			      FileWriter x = new FileWriter("src\\singleplayerscores.txt", true);
+			      FileWriter x = new FileWriter("src/singleplayerscores.txt", true);
 			      x.write(gameworld.getScore() + "\n");
 			      alreadyWrittenToFile = true;
 			      x.close();
-			      BufferedReader br = new BufferedReader(new FileReader("src\\singleplayerscores.txt"));
+			      BufferedReader br = new BufferedReader(new FileReader("src/singleplayerscores.txt"));
 			      String line;
 			      while ((line = br.readLine()) != null) {
 			          scores.add(Integer.parseInt(line));
@@ -630,11 +630,11 @@ public class Viewer extends JPanel {
 			}
 		} else if (!gameworld.singleplayer && !alreadyWrittenToFile) {
 			try {
-			      FileWriter x = new FileWriter("src\\multiplayerscores.txt", true);
+			      FileWriter x = new FileWriter("src/multiplayerscores.txt", true);
 			      x.write(gameworld.getScore() + "\n");
 			      alreadyWrittenToFile = true;
 			      x.close();
-			      BufferedReader br = new BufferedReader(new FileReader("src\\multiplayerscores.txt"));
+			      BufferedReader br = new BufferedReader(new FileReader("src/multiplayerscores.txt"));
 			      String line;
 			      while ((line = br.readLine()) != null) {
 			          scores.add(Integer.parseInt(line));
@@ -784,17 +784,17 @@ public class Viewer extends JPanel {
 			if (vecToPlayer.getX() > 0) {
 				if (vecToPlayer.getY() < 0) { //lower left
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview0.png");
+						temp.setTexture("res/enemytopview0.png");
 						if (vecToPlayer.dot(new Vector3f(0, -1, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview270.png");
+						temp.setTexture("res/enemytopview270.png");
 						if (vecToPlayer.dot(new Vector3f(1, 0, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview315.png");
+						temp.setTexture("res/enemytopview315.png");
 						if (vecToPlayer.dot(new Vector3f((float)Math.sqrt(2)/2, -1*(float)Math.sqrt(2)/2, 0)) >= 0.95 
 								&& gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
@@ -802,18 +802,18 @@ public class Viewer extends JPanel {
 					}
 				} else { //upper left
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview180.png");
+						temp.setTexture("res/enemytopview180.png");
 						if (vecToPlayer.dot(new Vector3f(0, 1, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview270.png");
+						temp.setTexture("res/enemytopview270.png");
 						if (vecToPlayer.dot(new Vector3f(1, 0, 0)) >= 0.95 
 								&& gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview225.png");
+						temp.setTexture("res/enemytopview225.png");
 						if (vecToPlayer.dot(new Vector3f((float)Math.sqrt(2)/2, (float)Math.sqrt(2)/2, 0)) >= 0.95 
 								&& gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
@@ -823,17 +823,17 @@ public class Viewer extends JPanel {
 			} else {
 				if (vecToPlayer.getY() < 0) { //lower right
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview0.png");
+						temp.setTexture("res/enemytopview0.png");
 						if (vecToPlayer.dot(new Vector3f(0, -1, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview90.png");
+						temp.setTexture("res/enemytopview90.png");
 						if (vecToPlayer.dot(new Vector3f(-1, 0, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview45.png");
+						temp.setTexture("res/enemytopview45.png");
 						if (vecToPlayer.dot(new Vector3f(-1 * (float)Math.sqrt(2)/2, -1 * (float)Math.sqrt(2)/2, 0)) >= 0.95 && 
 								gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
@@ -841,17 +841,17 @@ public class Viewer extends JPanel {
 					}
 				} else { //upper right
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview180.png");
+						temp.setTexture("res/enemytopview180.png");
 						if (vecToPlayer.dot(new Vector3f(0, 1, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview90.png");
+						temp.setTexture("res/enemytopview90.png");
 						if (vecToPlayer.dot(new Vector3f(-1, 0, 0)) >= 0.95 && gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview135.png");
+						temp.setTexture("res/enemytopview135.png");
 						if (vecToPlayer.dot(new Vector3f(-1 * (float)Math.sqrt(2)/2, (float)Math.sqrt(2)/2, 0)) >= 0.95 && 
 								gameworld.isPlayerAlive()) {
 							gameworld.CreateEnemyBullet(temp, vecToPlayer);
@@ -904,45 +904,45 @@ public class Viewer extends JPanel {
 				if (vecToEnemy.getX() > 0) {
 					if (vecToEnemy.getY() < 0) {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile180.png");
+							temp.setTexture("res/missile180.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile270.png");
+							temp.setTexture("res/missile270.png");
 							
 						} else {
-							temp.setTexture("res\\missile225.png");	
+							temp.setTexture("res/missile225.png");	
 						}
 					} else {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile0.png");
+							temp.setTexture("res/missile0.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile270.png");
+							temp.setTexture("res/missile270.png");
 							
 						} else {
-							temp.setTexture("res\\missile315.png");	
+							temp.setTexture("res/missile315.png");	
 						}
 					}
 				} else {
 					if (vecToEnemy.getY() < 0) {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile180.png");
+							temp.setTexture("res/missile180.png");
 				
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile90.png");
+							temp.setTexture("res/missile90.png");
 							
 						} else {
-							temp.setTexture("res\\missile135.png");	
+							temp.setTexture("res/missile135.png");	
 						}
 					} else {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile0.png");
+							temp.setTexture("res/missile0.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile90.png");
+							temp.setTexture("res/missile90.png");
 							
 						} else {
-							temp.setTexture("res\\missile45.png");	
+							temp.setTexture("res/missile45.png");	
 						}
 					}
 				}
@@ -955,13 +955,13 @@ public class Viewer extends JPanel {
 		{ 
 			long time = System.currentTimeMillis();
 			if (time < temp.creationTime + 250) {
-				temp.setTexture("res\\explosion1.png");
+				temp.setTexture("res/explosion1.png");
 			} else if (time < temp.creationTime + 500) {
-				temp.setTexture("res\\explosion2.png");
+				temp.setTexture("res/explosion2.png");
 			} else if (time < temp.creationTime + 750) {
-				temp.setTexture("res\\explosion3.png");
+				temp.setTexture("res/explosion3.png");
 			} else {
-				temp.setTexture("res\\explosion4.png");
+				temp.setTexture("res/explosion4.png");
 			}
 			Vector3f curr_center = new Vector3f(temp.getCentre().getX() - 500, temp.getCentre().getY() - 500, 0); //vector from the center of the screen to the current point
 			curr_center = turn(curr_center); //recalculates x and y position with the rotation angle
@@ -1010,17 +1010,17 @@ public class Viewer extends JPanel {
 			if (vecToPlayer.getX() > 0) {
 				if (vecToPlayer.getY() < 0) { //lower left
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview0.png");
+						temp.setTexture("res/enemytopview0.png");
 						if (vecToPlayer.dot(new Vector3f(0, -1, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview270.png");
+						temp.setTexture("res/enemytopview270.png");
 						if (vecToPlayer.dot(new Vector3f(1, 0, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview315.png");
+						temp.setTexture("res/enemytopview315.png");
 						if (vecToPlayer.dot(new Vector3f((float)Math.sqrt(2)/2, -1*(float)Math.sqrt(2)/2, 0)) >= 0.8 
 								&& gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
@@ -1028,18 +1028,18 @@ public class Viewer extends JPanel {
 					}
 				} else { //upper left
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview180.png");
+						temp.setTexture("res/enemytopview180.png");
 						if (vecToPlayer.dot(new Vector3f(0, 1, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview270.png");
+						temp.setTexture("res/enemytopview270.png");
 						if (vecToPlayer.dot(new Vector3f(1, 0, 0)) >= 0.8 
 								&& gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview225.png");
+						temp.setTexture("res/enemytopview225.png");
 						if (vecToPlayer.dot(new Vector3f((float)Math.sqrt(2)/2, (float)Math.sqrt(2)/2, 0)) >= 0.8 
 								&& gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
@@ -1049,17 +1049,17 @@ public class Viewer extends JPanel {
 			} else {
 				if (vecToPlayer.getY() < 0) { //lower right
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview0.png");
+						temp.setTexture("res/enemytopview0.png");
 						if (vecToPlayer.dot(new Vector3f(0, -1, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview90.png");
+						temp.setTexture("res/enemytopview90.png");
 						if (vecToPlayer.dot(new Vector3f(-1, 0, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview45.png");
+						temp.setTexture("res/enemytopview45.png");
 						if (vecToPlayer.dot(new Vector3f(-1 * (float)Math.sqrt(2)/2, -1 * (float)Math.sqrt(2)/2, 0)) >= 0.8
 								&& gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
@@ -1067,17 +1067,17 @@ public class Viewer extends JPanel {
 					}
 				} else { //upper right
 					if (ratio >= 3.3) {
-						temp.setTexture("res\\enemytopview180.png");
+						temp.setTexture("res/enemytopview180.png");
 						if (vecToPlayer.dot(new Vector3f(0, 1, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else if (ratio <= 0.285) {
-						temp.setTexture("res\\enemytopview90.png");
+						temp.setTexture("res/enemytopview90.png");
 						if (vecToPlayer.dot(new Vector3f(-1, 0, 0)) >= 0.8 && gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
 						}
 					} else {
-						temp.setTexture("res\\enemytopview135.png");
+						temp.setTexture("res/enemytopview135.png");
 						if (vecToPlayer.dot(new Vector3f(-1 * (float)Math.sqrt(2)/2, (float)Math.sqrt(2)/2, 0)) >= 0.8
 								&& gameworld.PlayerList.size() > 0) {
 							gameworld.CreateEnemyBulletMultiplayer(temp, vecToPlayer);
@@ -1119,45 +1119,45 @@ public class Viewer extends JPanel {
 				if (vecToEnemy.getX() > 0) {
 					if (vecToEnemy.getY() < 0) {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile180.png");
+							temp.setTexture("res/missile180.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile270.png");
+							temp.setTexture("res/missile270.png");
 							
 						} else {
-							temp.setTexture("res\\missile225.png");	
+							temp.setTexture("res/missile225.png");	
 						}
 					} else {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile0.png");
+							temp.setTexture("res/missile0.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile270.png");
+							temp.setTexture("res/missile270.png");
 							
 						} else {
-							temp.setTexture("res\\missile315.png");	
+							temp.setTexture("res/missile315.png");	
 						}
 					}
 				} else {
 					if (vecToEnemy.getY() < 0) {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile180.png");
+							temp.setTexture("res/missile180.png");
 				
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile90.png");
+							temp.setTexture("res/missile90.png");
 							
 						} else {
-							temp.setTexture("res\\missile135.png");	
+							temp.setTexture("res/missile135.png");	
 						}
 					} else {
 						if (ratio >= 3.3) {
-							temp.setTexture("res\\missile0.png");
+							temp.setTexture("res/missile0.png");
 							
 						} else if (ratio <= 0.285) {
-							temp.setTexture("res\\missile90.png");
+							temp.setTexture("res/missile90.png");
 							
 						} else {
-							temp.setTexture("res\\missile45.png");	
+							temp.setTexture("res/missile45.png");	
 						}
 					}
 				}
@@ -1170,13 +1170,13 @@ public class Viewer extends JPanel {
 		{ 
 			long time = System.currentTimeMillis();
 			if (time < temp.creationTime + 250) {
-				temp.setTexture("res\\explosion1.png");
+				temp.setTexture("res/explosion1.png");
 			} else if (time < temp.creationTime + 500) {
-				temp.setTexture("res\\explosion2.png");
+				temp.setTexture("res/explosion2.png");
 			} else if (time < temp.creationTime + 750) {
-				temp.setTexture("res\\explosion3.png");
+				temp.setTexture("res/explosion3.png");
 			} else {
-				temp.setTexture("res\\explosion4.png");
+				temp.setTexture("res/explosion4.png");
 			}
 			
 			drawMissile((int) temp.getCentre().getX(), (int) temp.getCentre().getY(), (int) temp.getWidth(), (int) temp.getHeight(), temp.getTexture(),g);	 
@@ -1298,29 +1298,29 @@ public class Viewer extends JPanel {
 		//display score, weapon availability/cooldown, health bar
 		if (!fontSet) {
 			File fontFile = new File("pixeloid-font/PixeloidSansBold-PKnYd.ttf");
-			File bulletOnFile = new File("res\\bulleton.png");
-			File bulletOffFile = new File("res\\bulletoff.png");
-			File missileOnFile = new File("res\\missileon.png");
-			File missileOffFile = new File("res\\missileoff.png");
-			File fireballOnFile = new File("res\\fireballon.png");
-			File fireballOffFile = new File("res\\fireballoff.png");
+			File bulletOnFile = new File("res/bulleton.png");
+			File bulletOffFile = new File("res/bulletoff.png");
+			File missileOnFile = new File("res/missileon.png");
+			File missileOffFile = new File("res/missileoff.png");
+			File fireballOnFile = new File("res/fireballon.png");
+			File fireballOffFile = new File("res/fireballoff.png");
 			
 			//create rest of the files here
-			File enemybulletFile = new File("res\\enemybullet.png");
+			File enemybulletFile = new File("res/enemybullet.png");
 			
-			File playerbulletFile = new File("res\\bullet.png");
+			File playerbulletFile = new File("res/bullet.png");
 			
-			File enemytopview0File = new File("res\\enemytopview0.png");
-			File enemytopview45File = new File("res\\enemytopview45.png");
-			File enemytopview90File = new File("res\\enemytopview90.png");
-			File enemytopview135File = new File("res\\enemytopview135.png");
-			File enemytopview180File = new File("res\\enemytopview180.png");
-			File enemytopview225File = new File("res\\enemytopview225.png");
-			File enemytopview270File = new File("res\\enemytopview270.png");
-			File enemytopview315File = new File("res\\enemytopview315.png");
+			File enemytopview0File = new File("res/enemytopview0.png");
+			File enemytopview45File = new File("res/enemytopview45.png");
+			File enemytopview90File = new File("res/enemytopview90.png");
+			File enemytopview135File = new File("res/enemytopview135.png");
+			File enemytopview180File = new File("res/enemytopview180.png");
+			File enemytopview225File = new File("res/enemytopview225.png");
+			File enemytopview270File = new File("res/enemytopview270.png");
+			File enemytopview315File = new File("res/enemytopview315.png");
 
-			File fireballbigFile = new File("res\\fireballbig.png");
-			File fireballsmallFile = new File("res\\fireballsmall.png");
+			File fireballbigFile = new File("res/fireballbig.png");
+			File fireballsmallFile = new File("res/fireballsmall.png");
 			
 			try {
 				bulletOn = ImageIO.read(bulletOnFile);
