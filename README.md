@@ -4,4 +4,4 @@ Gameplay demo:
 
 https://github.com/user-attachments/assets/3c49c090-18b2-4db1-b38e-1dbd2be51784
 
-The full Eclipse project is available in the repo.
+To play the game, download this repository as a .zip file and import it into Eclipse.
